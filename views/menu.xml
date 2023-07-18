@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="entries_finances_menu"
+        name="Finanzas Personales"
+        sequence="0"/>
+
+    <menuitem id="entries_finances_entry_master"
+        name="Administracion de Entradas"
+        parent="entries_finances_menu"
+        sequence="0"/>
+            
+    
+</odoo>

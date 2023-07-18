@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- definiendo el tree view -->
+
+    <record id="view_finances_entry_tree" model="ir.ui.view">
+            <field name="name">finances.entry.tree</field>
+            <field name="model">finances.entry</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="date" string="Fecha"/>
+                    <field name="description" string="Nota"/>
+                    <field name="amount" string="Cantidad"/>
+                    <field name="currency" string="Moneda"/>
+                    <field name="type" string="Tipo"/>
+                    <field name="transaction" string="Tipo de Transaccion"/>
+                    <field name="starred" string="Importante"/>
+                </tree>
+            </field>
+        </record>
+
+    <!-- definiendo el formulario -->
+
+    <record id="view_finances_entry_form" model="ir.ui.view">
+            <field name="name">finances.entry.form</field>
+            <field name="model">finances.entry</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                            <field name="date"/>
+                            <field name="description"/>
+                            <field name="type"/>
+                            <field name="transaction"/>
+                        </group>
+                        <group>
+                            <field name="amount"/>
+                            <field name="currency"/>
+                            <field name="starred"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        </group>
+                        
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- definiendo el search view -->
+    
+    <record id="view_finances_entry_search" model="ir.ui.view">
+            <field name="name">finances.entry.search</field>
+            <field name="model">finances.entry</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="date" string="Fecha"/>
+                    <field name="description" string="Nota"/>
+                    <field name="amount" string="Cantidad"/>
+                    <field name="currency" string="Moneda"/>
+                    <field name="type" string="Tipo"/>
+                    <field name="transaction" string="Tipo de Transaccion"/>
+                    <field name="starred" string="Importante"/>
+                    <!-- anadiendo filtros customizados -->
+                    <!-- tambien se puede hacer group by customizados -->
+                    <filter name="filter_entrada" string="Entrada" domain="[('type', '=', 'entrada')]"/> 
+                    <!-- separator hace Funcion de AND en vez de OR que se usa por defecto -->
+                    <separator/>
+                    <filter name="filter_archived" string="Archivados" domain="[('active', '=', False)]"/> 
+
+                    <filter name="filter_salida" string="Salida" domain="[('type', '=', 'salida')]"/> 
+                    <filter name="filter_starred" string="Importante" domain="[('starred', '=', True)]"/> 
+                </search>
+            </field>
+        </record>
+
+    <record id="action_finances_entry" model="ir.actions.act_window">
+        <field name="name">Registro</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">finances.entry</field>
+        <field name="view_mode">tree,kanban,form,pivot,activity</field>
+      
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea un nuevo registro!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_entry"
+        name="Registro"
+        action="action_finances_entry"
+        parent="entries_finances_entry_master"
+        sequence="0"/>
+</odoo>
