@@ -76,6 +76,10 @@
 
                     <filter name="filter_salida" string="Salida" domain="[('type', '=', 'salida')]"/> 
                     <filter name="filter_starred" string="Importante" domain="[('starred', '=', True)]"/> 
+                    <!-- searchpanel es el panel de categorias de la izquierda dentro del modulo -->
+                    <searchpanel>
+                        <field name="type" icon="fa-exchange" enable_counters="1" string="Tipos"/>
+                    </searchpanel>
                 </search>
             </field>
         </record>
