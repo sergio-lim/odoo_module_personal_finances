@@ -8,7 +8,7 @@
 To do...
 """,
     'depends': ['base','mail'],
-    'data': ['security/ir.model.access.csv','views/menu.xml', 'views/entry_view.xml',],
+    'data': ['security/ir.model.access.csv','views/menu.xml', 'views/entry_view.xml', 'views/journal_view.xml',],
     'application': True,
     'auto_install': False,
     'license': 'LGPL-3',

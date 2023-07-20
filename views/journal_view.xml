@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- definiendo el tree view -->
+
+    <record id="view_finances_journal_tree" model="ir.ui.view">
+            <field name="name">finances.journal.tree</field>
+            <field name="model">finances.journal</field>
+            <field name="arch" type="xml">
+                <tree>
+                </tree>
+            </field>
+        </record>
+
+    <!-- definiendo el formulario -->
+
+    <record id="view_finances_journal_form" model="ir.ui.view">
+            <field name="name">finances.journal.form</field>
+            <field name="model">finances.journal</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="entry_id"/>
+                    
+                        </group>
+                        <group>
+                    
+                        </group>
+                    
+                        </group>
+                        
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- definiendo el search view -->
+    
+    <record id="view_finances_journal_search" model="ir.ui.view">
+            <field name="name">finances.journal.search</field>
+            <field name="model">finances.journal</field>
+            <field name="arch" type="xml">
+                <search>
+                    
+                </search>
+            </field>
+        </record>
+
+    <record id="action_finances_journal" model="ir.actions.act_window">
+        <field name="name">Diario</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">finances.journal</field>
+        <field name="view_mode">tree,kanban,form,pivot,activity</field>
+      
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea un nuevo diario!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_journal"
+        name="Diario"
+        action="action_finances_journal"
+        parent="entries_finances_entry_master"
+        sequence="10"/>
+</odoo>

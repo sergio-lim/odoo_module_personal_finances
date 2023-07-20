@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <menuitem id="entries_finances_menu"
+    <menuitem id="menu_finances_root"
         name="Finanzas Personales"
         sequence="0"/>
 
     <menuitem id="entries_finances_entry_master"
         name="Administracion de Entradas"
-        parent="entries_finances_menu"
+        parent="menu_finances_root"
+        sequence="0"/>
+    
+    <menuitem id="entries_finances_journal_master"
+        name="Administracion de Diarios"
+        parent="menu_finances_root"
         sequence="0"/>
             
     

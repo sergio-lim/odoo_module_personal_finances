@@ -8,7 +8,7 @@ class FinancesEntry(models.Model):
 
     date = fields.Date(string='Fecha', tracking=True)
     # tracking=True means everytime the record is changed the system will output a message telling what changed
-    description = fields.Char(string='Nota', tracking=True)
+    name = fields.Char(string='Nota', tracking=True)
     amount = fields.Integer(string='Cantidad', tracking=True)
     currency = fields.Selection([('cup', 'CUP'), ('mlc', 'MLC'), ('usd', 'USD'), ('btc', 'BTC')], string="Moneda")
     transaction = fields.Selection([('efectivo', 'Efectivo'), ('transferencia', 'Transferencia')], string="Tipo de Transaccion", tracking=True)

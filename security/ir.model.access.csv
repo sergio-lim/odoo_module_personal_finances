@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access.finances.entry,access_finances_entry,personal_finance.model_finances_entry,base.group_user,1,1,1,1
+access.finances.journal,access_finances_journal,personal_finance.model_finances_journal,base.group_user,1,1,1,1
